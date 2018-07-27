@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>女装扑克牌挑战</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- 引入样式 -->
+    <link rel="stylesheet" href="ydui.rem.css">
+    <!-- 引入rem自适应类库 -->
+    <script src="ydui.flexible.js"></script>
+</head>
+
+<body>
+<yd-flexbox-item id="app" style="height: 100%;">
+    <template>
+        <yd-layout title="女装扑克牌挑战">
+
+            <div v-for="(item, index) in items">
+                <yd-preview :buttons="btns">
+                    <yd-preview-header>
+                        <div slot="left">任务内容</div>
+                        <div slot="right" v-once>{{ item.task }}</div>
+                    </yd-preview-header>
+
+                    <yd-preview-item>
+                        <div slot="left">任务编号</div>
+                        <div slot="right" v-once>{{ item.number }}</div>
+                    </yd-preview-item>
+                    <yd-preview-item>
+                        <div slot="left">剩余任务</div>
+                        <div slot="right" v-once>{{ item.surplus }}</div>
+                    </yd-preview-item>
+                    <yd-preview-item>
+                        <div slot="left">扑克点数</div>
+                        <div slot="right" v-once>{{ item.point }}</div>
+                    </yd-preview-item>
+                    <yd-preview-item>
+                        <div slot="left">扑克花色</div>
+                        <div slot="right" v-once>{{ item.color }}</div>
+                    </yd-preview-item>
+                </yd-preview>
+            </div>
+
+            <yd-tabbar slot="tabbar">
+                <yd-tabbar-item title="清空" @click.native="clear">
+                    <!-- <yd-icon name="home" slot="icon"></yd-icon> -->
+                </yd-tabbar-item>
+                <yd-tabbar-item title="介绍" @click.native="introduce">
+                    <!-- <yd-icon name="shopcart-outline" slot="icon"></yd-icon> -->
+                </yd-tabbar-item>
+                <yd-tabbar-item title="抽牌" @click.native="poker">
+                    <!-- <yd-icon name="ucenter-outline" slot="icon"></yd-icon> -->
+                </yd-tabbar-item>
+            </yd-tabbar>
+
+        </yd-layout>
+    </template>
+</yd-flexbox-item>
+<!-- 引入 Vue -->
+<script src="vue.js"></script>
+<!-- 引入组件库 -->
+<script src="ydui.rem.js"></script>
+<!-- 引入主程序 -->
+<script src="main.js"></script>
+</body>
+</html>
